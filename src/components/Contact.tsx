@@ -29,7 +29,7 @@ const Contact: React.FC = () => {
         setBudget(3000);
         setSelectedFiles(null);
       }, 3000);
-    } catch (error) {
+    } catch {
       setFormStatus('Something went wrong. Please try again.');
       setIsSubmitting(false);
     }

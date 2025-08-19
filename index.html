@@ -23,6 +23,14 @@
     <!-- Model Viewer -->
     <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
     <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+    <script>
+      // Ensure model-viewer is loaded
+      window.addEventListener('load', function() {
+        if (!customElements.get('model-viewer')) {
+          console.warn('Model viewer not loaded, falling back to image');
+        }
+      });
+    </script>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
