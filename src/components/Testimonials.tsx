@@ -17,22 +17,22 @@ const Testimonials: React.FC = () => {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      name: "Lena Vogt",
+      name: "Sarah Chen",
       role: "Art Director",
-      company: "VertexWorks",
-      avatar: "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?q=80&w=240&auto=format&fit=crop",
-      content: "Aiden delivered immaculate assets that dropped straight into Unreal. Clean topology, perfect bakes, and a strong eye for materials. Hit every milestone.",
-      project: "Modular Sci‑Fi Kitbash",
+      company: "AA Games",
+      avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=1080&q=80",
+      content: "Aiden delivered exceptional character models that perfectly matched our vision. The attention to detail and technical optimization was outstanding.",
+      project: "Character Pack (ZBrush)",
       rating: 5
     },
     {
       id: 2,
-      name: "Marco Estevez",
-      role: "Producer",
-      company: "AA Games",
-      avatar: "https://images.unsplash.com/photo-1642615835477-d303d7dc9ee9?w=1080&q=80",
-      content: "Outstanding partner. He anticipated engine constraints and delivered LODs, collisions, and documentation that saved our team days.",
-      project: "Vehicle Pack (Unity)",
+      name: "Marcus Rodriguez",
+      role: "Technical Director",
+      company: "VertexWorks",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1080&q=80",
+      content: "The environment assets were game-ready and optimized. Great communication throughout the project. Highly recommended.",
+      project: "Sci-Fi Environment (Blender)",
       rating: 5
     },
     {
@@ -83,26 +83,26 @@ const Testimonials: React.FC = () => {
           ref={trackRef}
           className="mt-6 flex snap-x snap-mandatory overflow-x-auto gap-4 rounded-2xl border border-white/10 bg-neutral-900/60 p-4"
         >
-          {testimonials.map(testimonial => (
-            <div key={testimonial.id} className="min-w-[280px] sm:min-w-[360px] snap-center rounded-xl border border-white/10 bg-neutral-950/60 p-5 shadow-lg">
+          {testimonials.map(({ id, name, role, company, avatar, content, project, rating }) => (
+            <div key={id} className="min-w-[280px] sm:min-w-[360px] snap-center rounded-xl border border-white/10 bg-neutral-950/60 p-5 shadow-lg">
               <div className="flex items-center gap-3">
                 <img 
-                  src={testimonial.avatar} 
-                  alt={`${testimonial.name} avatar`} 
+                  src={avatar} 
+                  alt={`${name} avatar`} 
                   className="h-10 w-10 rounded-full object-cover ring-1 ring-white/10" 
                 />
                 <div>
-                  <div className="text-sm font-medium">{testimonial.name}</div>
-                  <div className="text-[11px] text-neutral-400">{testimonial.role}, {testimonial.company}</div>
+                  <div className="text-sm font-medium">{name}</div>
+                  <div className="text-[11px] text-neutral-400">{role}, {company}</div>
                 </div>
-                <div className="ml-auto inline-flex items-center gap-0.5 text-amber-300" aria-label={`${testimonial.rating} out of 5 stars`}>
-                  {renderStars(testimonial.rating)}
+                <div className="ml-auto inline-flex items-center gap-0.5 text-amber-300" aria-label={`${rating} out of 5 stars`}>
+                  {renderStars(rating)}
                 </div>
               </div>
               <p className="mt-3 text-sm text-neutral-300">
-                {testimonial.content}
+                {content}
               </p>
-              <div className="mt-3 text-[11px] text-neutral-400">Project: {testimonial.project}</div>
+              <div className="mt-3 text-[11px] text-neutral-400">Project: {project}</div>
             </div>
           ))}
         </div>

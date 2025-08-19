@@ -35,24 +35,6 @@ const Contact: React.FC = () => {
     }
   };
 
-  const formatBudget = (value: number) => {
-    return new Intl.NumberFormat('de-DE', { 
-      style: 'currency', 
-      currency: 'EUR', 
-      maximumFractionDigits: 0 
-    }).format(value);
-  };
-
-  const getFileInfo = () => {
-    if (!selectedFiles || selectedFiles.length === 0) {
-      return '.zip, .pdf, images — up to 25 MB';
-    }
-    if (selectedFiles.length === 1) {
-      return selectedFiles[0].name;
-    }
-    return `${selectedFiles.length} files selected`;
-  };
-
   return (
     <section id="contact" className="relative mt-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -259,39 +241,41 @@ const Contact: React.FC = () => {
         </div>
       </div>
 
-      <style jsx>{`
-        .slider::-webkit-slider-thumb {
-          appearance: none;
-          height: 20px;
-          width: 20px;
-          border-radius: 50%;
-          background: linear-gradient(135deg, #22d3ee, #3b82f6);
-          cursor: pointer;
-          box-shadow: 0 0 10px rgba(34, 211, 238, 0.3);
-          transition: all 0.3s ease;
-        }
-        
-        .slider::-webkit-slider-thumb:hover {
-          transform: scale(1.2);
-          box-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
-        }
-        
-        .slider::-moz-range-thumb {
-          height: 20px;
-          width: 20px;
-          border-radius: 50%;
-          background: linear-gradient(135deg, #22d3ee, #3b82f6);
-          cursor: pointer;
-          border: none;
-          box-shadow: 0 0 10px rgba(34, 211, 238, 0.3);
-          transition: all 0.3s ease;
-        }
-        
-        .slider::-moz-range-thumb:hover {
-          transform: scale(1.2);
-          box-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
-        }
-      `}</style>
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          .slider::-webkit-slider-thumb {
+            appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #22d3ee, #3b82f6);
+            cursor: pointer;
+            box-shadow: 0 0 10px rgba(34, 211, 238, 0.3);
+            transition: all 0.3s ease;
+          }
+          
+          .slider::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
+          }
+          
+          .slider::-moz-range-thumb {
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #22d3ee, #3b82f6);
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 0 10px rgba(34, 211, 238, 0.3);
+            transition: all 0.3s ease;
+          }
+          
+          .slider::-moz-range-thumb:hover {
+            transform: scale(1.2);
+            box-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
+          }
+        `
+      }} />
     </section>
   );
 };
