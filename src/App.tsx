@@ -6,6 +6,7 @@ import Skills from './components/Skills';
 import Services from './components/Services';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 import BackgroundAccents from './components/BackgroundAccents';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Testimonials />
         <Contact />
       </main>
+      <Footer />
     </div>
   );
 }
